@@ -1,5 +1,6 @@
 const {Output} = require("./schema.js")
 const crypto = require('crypto');
+const {Input} = require("./schema.js")
 
 class Operator {
     constructor(context) {
@@ -54,4 +55,23 @@ class ReadOperation extends Operator{
     }
 }
 
-module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation}
+class EqualOperation extends Operator{
+    __process() {
+        let flag = 0
+        const value = this?.readValue(this?.input?.value[0]?.operation?.input)
+        if(this?.input?.value?.includes(value)){
+            flag = 1
+        }
+        this.output = new Output(flag);
+        return this;
+    }
+
+
+    readValue(readValue) {
+        const read = new ReadOperation(this.context)
+        read.input = new Input(this.context, readValue)
+        return read.getOutput().getValue()
+    }
+}
+
+module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation}
