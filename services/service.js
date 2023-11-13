@@ -23,6 +23,8 @@ const onRequest = async (req, res) => {
   }
   try {
     const isFormFound = req.params['0']?.match(matchText);
+    console.log(isFormFound,"hello", req.params['0'])
+
     let api = req.params['0']
     if(isFormFound){
       api = req.params['0'].replace(/\//g, '_');
@@ -40,6 +42,7 @@ const onRequest = async (req, res) => {
     //getting the callback url from config file
     let callbackConfig;
     let context;
+    console.log(paths,api)
     if (paths[api]) {
       // TODO add senario selection
       context = {

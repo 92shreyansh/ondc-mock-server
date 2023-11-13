@@ -38,6 +38,7 @@ const validateSchema = async (context) => {
       return true;
     }
   } catch (error) {
+    console.log(error,"ahsan====>")
     logger.error(error);
   }
 };

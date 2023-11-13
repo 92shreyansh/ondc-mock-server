@@ -66,7 +66,6 @@ class EqualOperation extends Operator{
         return this;
     }
 
-
     readValue(readValue) {
         const read = new ReadOperation(this.context)
         read.input = new Input(this.context, readValue)
