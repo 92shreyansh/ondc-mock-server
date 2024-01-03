@@ -93,6 +93,7 @@ const verifyHeader = async (req, security) => {
   logger = log.init();
   const headers = req.headers;
   const public_key = await getPublicKey(security.lookup_uri, headers);
+  console.log(public_key,"isthepublickey")
   // logger.info(`Public key retrieved from registry : ${public_key}`);
   // const public_key = security.publickey;
   //Validate the request source against the registry

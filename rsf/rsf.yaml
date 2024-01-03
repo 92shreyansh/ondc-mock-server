@@ -4,13 +4,13 @@ server:
   sync_mode: false
 security:
   verify_sign: true
-  lookup_uri: https://preprod.registry.ondc.org/ondc/lookup
+  lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: true
   subscriber_id: mock-api-service
   ukId: 584
   publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
   privatekey: >-
-    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+    3Yq7h59FdOI/nGuDOXzxdTk21kXv6dKr3eVnb0iacATtCYil/LXHpeQ3y/8ZkR0lUBpVqe2d2hqSEPmILocwrw==
 log:
   level: DEBUG
   output_type: file
@@ -63,4 +63,4 @@ path:
     schema:
       $ref: ./rsf/schema/receiver_recon_dummy.yaml
     callbacks:
-      $ref: ./rsf/push_receiver_recon.yaml   
+      $ref: ./rsf/push_receiver_recon.yaml  

@@ -68,6 +68,7 @@ const getPublicKey = async (lookupUri, header) => {
     const extractSubscriberIdukId = extractSubscriberId(header);
     const subscriberId = extractSubscriberIdukId.subscriberID;
     const ukId = extractSubscriberIdukId.uniquePublicKeyID;
+    // console.log(ukId,"isuniquekey",subscriberId)
     let publicKey;
     await axios
       .post(lookupUri, {
@@ -75,6 +76,7 @@ const getPublicKey = async (lookupUri, header) => {
         ukId: ukId,
       })
       .then((response) => {
+        // console.log(response,"istheresponse")
         response = response.data;
         publicKey = response[0]?.signing_public_key;
       });
