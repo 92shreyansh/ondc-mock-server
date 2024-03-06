@@ -10,8 +10,9 @@ var logger;
 
 const trigger = async(context, config, data,security) => {
   logger = log.init();
-  let uri = context.req_body.context.bap_uri
-  let api = config.callback;
+  // let uri = 'http://localhost:4000/seller/' || context.req_body.context.bap_uri
+  let uri = 'http://localhost:4000/mapper/' || context.req_body.context.bap_uri
+  let api = "on_"+context.req_body.context.action;
   let delay = config.delay;
   if(uri[uri.length-1]!="/"){ //"add / if not exists in bap uri"
     uri=uri+"/"
@@ -41,7 +42,7 @@ const trigger = async(context, config, data,security) => {
           );
         })
         .catch(function (error) {
-          logger.error(error);
+          logger.error(`${error} ${error.errors[0].message}`);
         });
     }, delay);
   } catch (error) {

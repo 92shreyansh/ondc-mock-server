@@ -1,4 +1,5 @@
 template:
+    name: metro
     data:
       $ref: "../payloads/on_status.yaml"
     dict:

@@ -10,6 +10,8 @@ security:
   ukId: 584
   publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
   privatekey: dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+protocol_server:
+  - ONDC:TRV11
 log:
   level: DEBUG
   output_type: file

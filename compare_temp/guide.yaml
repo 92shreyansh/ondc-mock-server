@@ -1,0 +1,29 @@
+            "items": [
+                {
+                    "category_ids": [
+                        "C1"
+                    ],
+                    "descriptor": {
+                        "code": "SJT",
+                        "name": "Single Journey Ticket"
+                    },
+                    "fulfillment_ids": [
+                        "F1",
+                        "F2"
+                    ],
+                    "id": "I1",
+                    "price": {
+                        "currency": "INR",
+                        "value": "60"
+                    },
+                    "quantity": {
+                        "selected": {
+                            "count": 2
+                        }
+                    },
+                    "time": {
+                        "duration": "PT2D",
+                        "label": "Validity"
+                    }
+                }
+            ]

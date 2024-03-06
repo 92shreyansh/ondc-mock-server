@@ -1,10 +1,12 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: true
+  sync_mode: false
+  protocol_server:
+    - ONDC:TRV11
 security:
   verify_sign: false
-  lookup_uri: http://localhost:3000/lookup
+  lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: false
   subscriber_id: mock-api-service
   ukId: 584
@@ -15,6 +17,7 @@ log:
   level: DEBUG
   output_type: file
   out_file: log_file.log
+
 path:
   search:
     schema:

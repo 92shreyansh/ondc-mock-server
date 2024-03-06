@@ -1,0 +1,8 @@
+
+        
+      # - business_key: "bpp_id"
+      #   extractionPath: context.bpp_id
+      # - business_key: "bpp_uri"
+      #   extractionPath: context.bpp_uri
+      # - business_key: "location"
+      #   extractionPath: "message.catalog.providers[].fulfillments[].stops[]{locationName: location.descriptor.code}"

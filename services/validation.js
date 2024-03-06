@@ -16,6 +16,8 @@ const addFormats = require("ajv-formats");
 addFormats(ajv);
 require("ajv-errors")(ajv);
 const log = require("../utils/logger");
+const getBecknObject = require("../json_mapper/services.js")
+const jsonout = require("../jsonout.js")
 //schema validation
 
 var logger;
@@ -53,7 +55,6 @@ const validateRequest = async (
   flag //true for not sending responses
 ) => {
   logger = log.init();
-  if (isFormFound ||  await validateSchema(context)) { //if validation passes or isformtrue then onlysend response otherwise send error
     //handle callbacks in case of multiple callback
     if(callbackConfig.callbacks){
         for (let i = 0 ; i < callbackConfig.callbacks.length ; i++){
@@ -69,17 +70,13 @@ const validateRequest = async (
       if (payloadConfig["template"]) {
         data = buildTemplate(context, callbackConfig?.payload?.template);
       }
-      if (security.generate_sign) {
-        //create response header
-        const header = await createAuthorizationHeader({
-          message: data,
-          privateKey: security.privatekey,
-          bapId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
-          bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
-        });
-
-        if(!flag){res.setHeader("Authorization", header);}
+      
+      //transform back to ondc payload JSON_MAPPER
+      if(server.protocol_server.includes(context.req_body.context.domain)){
+        data = getBecknObject(data)
       }
+      
+      jsonout(data,"dataoutput")
       if (callbackConfig.callback === "undefined"|| server.sync_mode  && !flag ) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
@@ -90,11 +87,7 @@ const validateRequest = async (
       }
       return !flag?res.json(ack):false
     } 
-  }
-  else {
-      schemaNack.error.path = JSON.stringify(error_list)
-      return !flag?res.json(schemaNack):false
-    }
+
   }
 
 

@@ -1,4 +1,5 @@
 template:
+    name: on_search_1_stationcode_flow
     data:
       $ref: "../payloads/on_search_station-1.yaml"
     dict:

@@ -6,6 +6,33 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
+
+
+
+# json_mapper_metro_search:
+#   condition:
+#       operation:
+#         type: AND
+#         input:
+#           value:
+#           - operation:
+#               type: EQUAL
+#               title: Check search message code
+#               input:
+#                 value:
+#                   - operation:
+#                       type: READ
+#                       input:
+#                         value: "req_body.context.json"
+#                   - undefined
+#   callback: "on_search"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./metro_jsonmapper/template/on_search.yaml"
+
+
 intercity-bus-station-code2:
   condition:
       operation:
@@ -68,6 +95,8 @@ intercity-bus-station-code2:
   delay: 300
   payload:
     $ref: "./intercity-bus/template/on_search-stationcode-pointab.yaml"
+
+
 
 
 intercity-bus-station-code1:

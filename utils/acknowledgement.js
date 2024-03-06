@@ -43,4 +43,15 @@ const signNack={
   }
 }
 
-module.exports={ack,schemaNack,signNack,invalidNack}
+const sessionNack={
+  "message": {
+    "ack": {
+      "status": "NACK"
+    }
+  },
+  "error": {
+    "message": "Session does not exist"
+  }
+}
+
+module.exports={ack,schemaNack,signNack,invalidNack,sessionNack}

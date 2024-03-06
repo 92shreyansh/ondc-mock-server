@@ -2,7 +2,10 @@ const { getPublicKey,dynamicReponse } = require("../utils/utils");
 const {  signNack,invalidNack } = require("../utils/acknowledgement");
 const log = require("../utils/logger");
 const config = require("../utils/config");
-const { validateRequest, verifyHeader } = require("./validation");
+const { validateRequest, verifyHeader ,validateSchema} = require("./validation");
+// const triggerMapper = require("../utils/json_mapper")
+const getBecknObject = require("../json_mapper/services")
+const { ack, schemaNack,sessionNack } = require("../utils/acknowledgement");
 
 //getting path object from config file
 
@@ -20,6 +23,7 @@ const onRequest = async (req, res) => {
     security = props.security;
     server = props.server;
     paths = props.path;
+    PROTOCOL_SERVER_DOMAINS = props.server.protocol_server
   }
   try {
     const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
@@ -32,7 +36,7 @@ const onRequest = async (req, res) => {
       if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified
         res.status(400).json(signNack);
-        logger.error("Authorization header not verified");
+        logger.error("Authorization header not verified ");
         return; // Make sure to return to exit the function
     } 
   }
@@ -46,14 +50,33 @@ const onRequest = async (req, res) => {
         req_body: req.body,
         apiConfig: paths[api],
       };
-      callbackConfig = dynamicReponse(context)
+      //do validation
+      logger.info(`Validating ${api} request`);
+      // validate schema
+      if(isFormFound || await validateSchema(context)){
+
+        if(PROTOCOL_SERVER_DOMAINS.includes(context.req_body.context.domain)){ //json mapper
+          context.req_body = getBecknObject(context.req_body) 
+          if(context.req_body == null){
+            res.status(400).send(sessionNack)
+          }
+        }
+        
+        callbackConfig = dynamicReponse(context)
+        await validateRequest(context, callbackConfig, res, security, server, isFormFound);
+
+
+      }else{
+        schemaNack.error.path = JSON.stringify(error_list)
+        return res.json(schemaNack)
+      }
+ 
     } else {
       logger.error("Invalid Request");
       return res.json(invalidNack);
     }
     
-    logger.info(`Validating ${api} request`);
-    await validateRequest(context, callbackConfig, res, security, server, isFormFound);
+
   } catch (error) {
     logger.error("ERROR!!", error);
     console.trace(error);
