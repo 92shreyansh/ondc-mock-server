@@ -5,7 +5,8 @@ const config = require("../utils/config");
 const { validateRequest, verifyHeader ,validateSchema} = require("./validation");
 // const triggerMapper = require("../utils/json_mapper")
 const getBecknObject = require("../json_mapper/services")
-const { ack, schemaNack,sessionNack } = require("../utils/acknowledgement");
+const {generateSession} = require ("../json_mapper/core/session")
+const { ack, schemaNack,sessionNack,sessionAck } = require("../utils/acknowledgement");
 
 //getting path object from config file
 
@@ -26,8 +27,18 @@ const onRequest = async (req, res) => {
     PROTOCOL_SERVER_DOMAINS = props.server.protocol_server
   }
   try {
-    const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
     let api = req.params['0']
+
+    // session
+    if(api == 'session'){
+        generateSession(req.body)
+        return res.json(sessionAck)
+    }
+
+
+
+
+    const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
     if(isFormFound){
       api = req.params['0'].replace(/\//g, '_'); 
     }
@@ -56,7 +67,7 @@ const onRequest = async (req, res) => {
       if(isFormFound || await validateSchema(context)){
 
         if(PROTOCOL_SERVER_DOMAINS.includes(context.req_body.context.domain)){ //json mapper
-          context.req_body = getBecknObject(context.req_body) 
+          context.req_body = await getBecknObject(context.req_body) 
           if(context.req_body == null){
             res.status(400).send(sessionNack)
           }

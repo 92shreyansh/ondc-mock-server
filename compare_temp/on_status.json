@@ -11,9 +11,9 @@
         "code": "std:044"
       }
     },
-    "transaction_id": "629fdfe9-e77c-4d79-aa94-2da2de09f660",
-    "message_id": "42b505f7-fe8b-4a1f-8871-ca02fcecedda",
-    "timestamp": "2024-03-06T23:13:19.389Z",
+    "transaction_id": "628fdfe9-e77c-4d79-aa94-2da2de09f660",
+    "message_id": "5d764989-2e5e-4648-88dd-7b841da64067",
+    "timestamp": "2024-03-07T03:53:36.481Z",
     "domain": "ONDC:TRV11",
     "version": "2.0.0",
     "ttl": "PT10M",
@@ -702,7 +702,7 @@
             "bank_code": "XXXXXXXX",
             "currency": "INR",
             "amount": "120",
-            "transaction_id": "629fdfe9-e77c-4d79-aa94-2da2de09f660",
+            "transaction_id": "628fdfe9-e77c-4d79-aa94-2da2de09f660",
             "bank_account_number": "xxxxxxxxxxxxxx",
             "virtual_payment_address": "9988199772@okicic"
           },
@@ -711,7 +711,6 @@
               "descriptor": {
                 "code": "BUYER_FINDER_FEES"
               },
-              "display": false,
               "list": [
                 {
                   "descriptor": {
@@ -769,7 +768,6 @@
               "descriptor": {
                 "code": "SETTLEMENT_DETAILS"
               },
-              "display": false,
               "list": [
                 {
                   "descriptor": {
@@ -787,7 +785,6 @@
           "descriptor": {
             "code": "SCHEDULED_INFO"
           },
-          "display": false,
           "list": [
             {
               "descriptor": {

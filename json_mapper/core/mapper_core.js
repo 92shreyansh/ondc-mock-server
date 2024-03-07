@@ -9,7 +9,6 @@ const logger = require("../../utils/logger").init();
 //  };   
 
 //  insertSession(sessionObject)
-generateSession()
 
 const buildTags = (tags) => {
   return Object.keys(tags).map((key) => {

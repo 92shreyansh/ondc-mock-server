@@ -1,6 +1,7 @@
 {
   "context": {
-    "bap_id": "mobility-staging.ondc.org",
+    "bap_id": "api.example-bap.com",
+    "bap_uri": "https://api.example-bap.com/ondc/metro",
     "bpp_id": "http://example.com",
     "bpp_uri": "http://example.com",
     "location": {
@@ -12,24 +13,65 @@
       }
     },
     "transaction_id": "629fdfe9-e77c-4d79-aa94-2da2de09f660",
-    "message_id": "42b505f7-fe8b-4a1f-8871-ca02fcecedda",
-    "timestamp": "2024-03-06T23:13:19.389Z",
+    "message_id": "758e2d4b-73c4-4aa0-82f2-b8d599fd0bee",
+    "timestamp": "2024-03-07T03:53:25.952Z",
     "domain": "ONDC:TRV11",
     "version": "2.0.0",
     "ttl": "PT10M",
-    "action": "on_status"
+    "action": "on_confirm"
   },
   "message": {
     "order": {
-      "id": "077b248f",
-      "cancellation_terms": [
+      "items": [
         {
-          "external_ref": {
-            "mimetype": "text/html",
-            "url": "https://transitsolutions.com/mf/tnc.html"
+          "id": "I1",
+          "category_ids": [
+            "C1"
+          ],
+          "descriptor": {
+            "name": "Single Journey Ticket",
+            "code": "SJT"
+          },
+          "price": {
+            "currency": "INR",
+            "value": "60"
+          },
+          "quantity": {
+            "selected": {
+              "count": 2
+            }
+          },
+          "fulfillment_ids": [
+            "F1",
+            "F2"
+          ],
+          "time": {
+            "label": "Validity",
+            "duration": "PT2D"
           }
         }
       ],
+      "id": "077b248f",
+      "created_at": "2021-03-23T10:00:40.065Z",
+      "updated_at": "2021-03-23T10:00:40.065Z",
+      "status": "ACTIVE",
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "name": "Delhi Metro Rail Limited",
+          "images": [
+            {
+              "url": "https://delhimetrorail.com/logos/logo.ico"
+            }
+          ]
+        },
+        "time": {
+          "range": {
+            "start": "2023-09-14T05:30:00.000Z",
+            "end": "2023-09-14T23:30:00.000Z"
+          }
+        }
+      },
       "fulfillments": [
         {
           "id": "F1",
@@ -43,6 +85,12 @@
                   "code": "SHAHEED_STHAL"
                 },
                 "gps": "28.686576, 77.441632"
+              },
+              "authorization": {
+                "type": "QR",
+                "token": "iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==",
+                "valid_to": "2021-03-23T23:59:59.999Z",
+                "status": "UNCLAIMED"
               },
               "id": "1"
             },
@@ -374,6 +422,12 @@
                 },
                 "gps": "28.686576, 77.441632"
               },
+              "authorization": {
+                "type": "QR",
+                "token": "xNMPRw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==",
+                "valid_to": "2021-03-23T23:59:59.999Z",
+                "status": "UNCLAIMED"
+              },
               "id": "1"
             },
             {
@@ -692,6 +746,38 @@
           ]
         }
       ],
+      "billing": {
+        "name": "John Doe",
+        "phone": "+91-9897867564",
+        "email": "john.doe@example.com"
+      },
+      "quote": {
+        "price": {
+          "value": "120",
+          "currency": "INR"
+        },
+        "breakup": [
+          {
+            "title": "BASE_FARE",
+            "item": {
+              "id": "I1",
+              "price": {
+                "currency": "INR",
+                "value": "60"
+              },
+              "quantity": {
+                "selected": {
+                  "count": 2
+                }
+              }
+            },
+            "price": {
+              "currency": "INR",
+              "value": "120"
+            }
+          }
+        ]
+      },
       "payments": [
         {
           "id": "PA1",
@@ -711,7 +797,6 @@
               "descriptor": {
                 "code": "BUYER_FINDER_FEES"
               },
-              "display": false,
               "list": [
                 {
                   "descriptor": {
@@ -769,7 +854,6 @@
               "descriptor": {
                 "code": "SETTLEMENT_DETAILS"
               },
-              "display": false,
               "list": [
                 {
                   "descriptor": {
@@ -787,7 +871,6 @@
           "descriptor": {
             "code": "SCHEDULED_INFO"
           },
-          "display": false,
           "list": [
             {
               "descriptor": {
@@ -797,82 +880,7 @@
             }
           ]
         }
-      ],
-      "updated_at": "2021-03-23T10:00:40.065Z",
-      "items": [
-        {
-          "id": "I1",
-          "descriptor": {
-            "name": "Single Journey Ticket",
-            "code": "SJT"
-          },
-          "category_ids": [
-            "C1"
-          ],
-          "price": {
-            "currency": "INR",
-            "value": "60"
-          },
-          "quantity": {
-            "selected": {
-              "count": 2
-            }
-          },
-          "fulfillment_ids": [
-            "F1",
-            "F2"
-          ],
-          "time": {
-            "label": "Validity",
-            "duration": "PT2D"
-          }
-        }
-      ],
-      "quote": {
-        "price": {
-          "value": "120",
-          "currency": "INR"
-        },
-        "breakup": [
-          {
-            "item": {
-              "id": "I1",
-              "price": {
-                "currency": "INR",
-                "value": "60"
-              },
-              "quantity": {
-                "selected": {
-                  "count": 2
-                }
-              }
-            },
-            "price": {
-              "currency": "INR",
-              "value": "120"
-            },
-            "title": "BASE_FARE"
-          }
-        ]
-      },
-      "provider": {
-        "id": "1",
-        "descriptor": {
-          "name": "Delhi Metro Rail Limited",
-          "images": [
-            {
-              "url": "https://delhimetrorail.com/logos/logo.ico"
-            }
-          ]
-        },
-        "time": {
-          "range": {
-            "start": "2023-09-14T05:30:00.000Z",
-            "end": "2023-09-14T23:30:00.000Z"
-          }
-        }
-      },
-      "status": "COMPLETE"
+      ]
     }
   }
 }

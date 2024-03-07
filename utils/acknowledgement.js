@@ -54,4 +54,14 @@ const sessionNack={
   }
 }
 
-module.exports={ack,schemaNack,signNack,invalidNack,sessionNack}
+const sessionAck = {
+  "message": {
+    "ack": {
+      "status": "ACK",
+      "message": "Session Generated"
+    }
+  }
+
+}
+
+module.exports={ack,schemaNack,signNack,invalidNack,sessionNack,sessionAck}

@@ -73,10 +73,10 @@ const validateRequest = async (
       
       //transform back to ondc payload JSON_MAPPER
       if(server.protocol_server.includes(context.req_body.context.domain)){
-        data = getBecknObject(data)
+        data = await getBecknObject(data)
       }
       
-      jsonout(data,"dataoutput")
+      jsonout(data,data.context.action)
       if (callbackConfig.callback === "undefined"|| server.sync_mode  && !flag ) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);

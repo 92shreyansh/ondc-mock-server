@@ -75,50 +75,46 @@ const getConfigBasedOnFlow = async (flowId) =>{
 
 }
 
-async function generateSession(){
-  let req= {}
-  req.body = {
-      version: "2.0.0",
-      country: "India",
-      cityCode: "std:044",
-      configName: "metro-flow-1",
-      transaction_id: "629fdfe9-e77c-4d79-aa94-2da2de09f660"
-  }
-  const {
-    version,
-    country,
-    cityCode,
-    transaction_id,
-    configName
-  } = req.body;
-
-
-  const {
-    filteredCalls,
-    filteredInput,
-    filteredDomain,
-    filteredSessiondata,
-    filteredAdditionalFlows,
-    filteredsummary
-  } = await getConfigBasedOnFlow(configName);
-  
-  const session = {
-    ...req.body,
-    bap_id: "mobility-staging.ondc.org",
-    bap_uri: process.env.callbackUrl,
-    ttl: "PT10M",
-    domain: filteredDomain,
-    summary: filteredsummary,
-    ...filteredSessiondata,
-    currentTransactionId: transaction_id,
-    transactionIds: [transaction_id],
-    input: filteredInput,
-    protocolCalls: filteredCalls,
-    additioalFlows: filteredAdditionalFlows
-  };
+async function generateSession(session_body){
+  return new Promise(async(resolve,reject)=>{
+    const {
+      version,
+      country,
+      cityCode,
+      transaction_id,
+      configName
+    } = session_body;
   
   
-  insertSession(session);
+    const {
+      filteredCalls,
+      filteredInput,
+      filteredDomain,
+      filteredSessiondata,
+      filteredAdditionalFlows,
+      filteredsummary
+    } = await getConfigBasedOnFlow(configName);
+    
+    const session = {
+      ...session_body,
+      bap_id: "mobility-staging.ondc.org",
+      bap_uri: process.env.callbackUrl,
+      ttl: "PT10M",
+      domain: filteredDomain,
+      summary: filteredsummary,
+      ...filteredSessiondata,
+      currentTransactionId: transaction_id,
+      transactionIds: [transaction_id],
+      input: filteredInput,
+      protocolCalls: filteredCalls,
+      additioalFlows: filteredAdditionalFlows
+    };
+    
+    
+    insertSession(session);
+    resolve(true)
+  
+  })
 }
 
 
