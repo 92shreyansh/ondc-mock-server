@@ -13,8 +13,8 @@
       }
     },
     "transaction_id": "629fdfe9-e77c-4d79-aa94-2da2de09f660",
-    "message_id": "34786bb9-10f5-43a6-9e6c-d7bc3aa0c99a",
-    "timestamp": "2024-03-07T03:46:21.771Z",
+    "message_id": "14feb7ef-a847-4f20-9c27-45061896bb4f",
+    "timestamp": "2024-03-07T09:38:58.215Z",
     "domain": "ONDC:TRV11",
     "version": "2.0.0",
     "ttl": "PT10M",
@@ -714,7 +714,6 @@
                   "descriptor": {
                     "code": "BUYER_FINDER_FEES"
                   },
-                  "display": false,
                   "list": [
                     {
                       "descriptor": {
@@ -728,7 +727,6 @@
                   "descriptor": {
                     "code": "SETTLEMENT_TERMS"
                   },
-                  "display": false,
                   "list": [
                     {
                       "descriptor": {
@@ -766,7 +764,6 @@
                   "descriptor": {
                     "code": "SETTLEMENT_DETAILS"
                   },
-                  "display": false,
                   "list": [
                     {
                       "descriptor": {
@@ -785,7 +782,6 @@
               "descriptor": {
                 "code": "SCHEDULED_INFO"
               },
-              "display": false,
               "list": [
                 {
                   "descriptor": {
