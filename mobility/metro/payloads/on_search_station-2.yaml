@@ -291,7 +291,7 @@ trips:
 #     GTFS: https://metro-transit/gtfs-realtime
 #     display: false
 metro_items:
-- id: I1
+- id: ITEM_ID_1_METRO
   category_ids:
   - C1
   descriptor:
@@ -310,42 +310,42 @@ metro_items:
   time:
     label: Validity
     duration: PT2D
-- id: I2
-  category_ids:
-  - C1
-  descriptor:
-    name: Round Journey Ticket
-    code: RJT
-  price:
-    currency: INR
-    value: '110'
-  quantity:
-    maximum:
-      count: 6
-    minimum:
-      count: 1
-  fulfillment_ids:
-  - F1
-  time:
-    label: Validity
-    duration: PT2D
-- id: I3
-  category_ids:
-  - '1'
-  - '2'
-  descriptor:
-    name: Journey Pass
-    code: Pass
-  price:
-    currency: INR
-    value: '500'
-  quantity:
-    maximum:
-      count: 1
-    minimum:
-      count: 1
-  fulfillment_ids:
-  - F2
-  time:
-    label: Validity
-    duration: PT2D
+# - id: I2
+#   category_ids:
+#   - C1
+#   descriptor:
+#     name: Round Journey Ticket
+#     code: RJT
+#   price:
+#     currency: INR
+#     value: '110'
+#   quantity:
+#     maximum:
+#       count: 6
+#     minimum:
+#       count: 1
+#   fulfillment_ids:
+#   - F1
+#   time:
+#     label: Validity
+#     duration: PT2D
+# - id: I3
+#   category_ids:
+#   - '1'
+#   - '2'
+#   descriptor:
+#     name: Journey Pass
+#     code: Pass
+#   price:
+#     currency: INR
+#     value: '500'
+#   quantity:
+#     maximum:
+#       count: 1
+#     minimum:
+#       count: 1
+#   fulfillment_ids:
+#   - F2
+#   time:
+#     label: Validity
+#     duration: PT2D
