@@ -2,6 +2,7 @@ context:
   transaction_id: '{{transaction_id}}'
   action: on_init
   timestamp: '{{timestamp}}'
+  message_id: '{{message_id}}'
 # message:
 metro_items:
 - id: I1

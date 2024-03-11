@@ -2,6 +2,7 @@ context:
   transaction_id: '{{transaction_id}}'
   action: on_confirm
   timestamp: '{{timestamp}}'
+  message_id: '{{message_id}}'
 
 billing_name: John Doe
 billing_email: john.doe@example.com
