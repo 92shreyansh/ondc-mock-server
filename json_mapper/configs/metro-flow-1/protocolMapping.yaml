@@ -22,6 +22,8 @@ protocol:
         value: session.bap_uri
       - beckn_key: context.action
         value: data.context.action
+      - beckn_key: context.location.city.code
+        value: session.cityCode
 
       - beckn_key: message.intent.fulfillment
         value: data.message.intent.fulfillment
