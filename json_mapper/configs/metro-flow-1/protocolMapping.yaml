@@ -41,7 +41,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -108,7 +108,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -140,7 +140,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -199,7 +199,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -231,7 +231,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -326,7 +326,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -367,7 +367,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -476,7 +476,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -516,7 +516,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -685,7 +685,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
@@ -729,7 +729,7 @@ protocol:
       - beckn_key: context.transaction_id
         value: session.currentTransactionId
       - beckn_key: context.message_id
-        value: messageId
+        value: data.context.message_id
       - beckn_key: context.timestamp
         value: timestamp
       - beckn_key: context.domain
