@@ -16,10 +16,12 @@ protocol:
         value: session.transaction_id
       - beckn_key: context.message_id
         value: data.context.message_id
-      - beckn_key: bap_id
-        value: data.context.bap_id
-      - beckn_key: bap_uri
-        value: data.context.bap_uri
+      - beckn_key: context.bap_id
+        value: session.bap_id
+      - beckn_key: context.bap_uri
+        value: session.bap_uri
+      - beckn_key: context.action
+        value: data.context.action
 
       - beckn_key: message.intent.fulfillment
         value: data.message.intent.fulfillment
