@@ -345,6 +345,16 @@ metro-station-code-1:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.location.city.code"
+                  - std:011
+          - operation:
                 type: EQUAL
                 title: Check search message code
                 input:
@@ -364,6 +374,7 @@ metro-station-code-1:
                       input:
                         value: "req_body.message.intent.fulfillment.stops"
                   - undefined
+
   callback: "on_search"
   uri:
     $ref: ""
@@ -408,6 +419,16 @@ metro-station-code-2:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.location.city.code"
+                  - std:011
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -462,6 +483,16 @@ metro-gps-1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.location.city.code"
+                  - std:011
           - operation:
                 type: EQUAL
                 title: Check search message code

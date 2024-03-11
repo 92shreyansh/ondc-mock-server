@@ -77,6 +77,16 @@ metro:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.location.city.code"
+                  - std:011
+          - operation:
                 type: EQUAL
                 title: Check search message code
                 input:
