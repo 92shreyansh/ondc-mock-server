@@ -14,7 +14,10 @@ protocol:
         value: session.version
       - beckn_key: context.transaction_id
         value: session.transaction_id
-
+      - beckn_key: bap_id
+        value: data.context.bap_id
+      - beckn_key: bap_uri
+        value: data.context.bap_uri
 
       - beckn_key: message.intent.fulfillment
         value: data.message.intent.fulfillment
