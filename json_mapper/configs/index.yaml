@@ -18,8 +18,8 @@ flows:
     id: metro-flow-1
     domain: ONDC:TRV11
     sessionData:
-      bpp_uri: "http://example.com"
-      bpp_id: "http://example.com"
+      bpp_uri: "https://mobility-staging.ondc.org/seller/"
+      bpp_id: "mobility-staging.ondc.org"
       collectedBy: BAP
       bankAccountNumber: "xxxxxxxxxxxxxx"
       virtualPaymentAddress: "9988199772@okicic"
