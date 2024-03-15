@@ -4,12 +4,6 @@ const { v4: uuidv4 } = require("uuid");
 const logger = require("../../utils/logger").init();
 
 
-// const insertSession = (session) => {
-//   setCache("jm_" + session.transaction_id, session, 86400) 
-//  };   
-
-//  insertSession(sessionObject)
-
 const buildTags = (tags) => {
   return Object.keys(tags).map((key) => {
     

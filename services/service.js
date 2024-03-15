@@ -34,10 +34,7 @@ const onRequest = async (req, res) => {
         generateSession(req.body)
         return res.json(sessionAck)
     }
-
-
-
-
+    
     const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
     if(isFormFound){
       api = req.params['0'].replace(/\//g, '_'); 

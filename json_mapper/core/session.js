@@ -107,7 +107,7 @@ async function generateSession(session_body){
       transactionIds: [transaction_id],
       input: filteredInput,
       protocolCalls: filteredCalls,
-      additioalFlows: filteredAdditionalFlows
+      additioalFlows: filteredAdditionalFlows,
     };
     
     
