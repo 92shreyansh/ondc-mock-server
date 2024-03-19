@@ -44,10 +44,12 @@ const getConfigBasedOnFlow = async (flowId) =>{
       let filteredSessiondata = null;
       let filteredAdditionalFlows = null;
       let filteredsummary = "";
+      let filteredSchema = null;
+
     
       this.config.flows.forEach((flow) => {
         if (flow.id === flowId) {
-          const { input, calls, domain, sessionData, additioalFlows, summary } =
+          const { input, calls, domain, sessionData, additioalFlows, summary ,schema } =
             flow;
           filteredInput = input;
           filteredCalls = calls;
@@ -55,6 +57,7 @@ const getConfigBasedOnFlow = async (flowId) =>{
           filteredSessiondata = sessionData;
           filteredAdditionalFlows = additioalFlows || [];
           filteredsummary = summary;
+          filteredSchema = schema
         }
       });
     
@@ -65,6 +68,7 @@ const getConfigBasedOnFlow = async (flowId) =>{
         filteredSessiondata,
         filteredAdditionalFlows,
         filteredsummary,
+        filteredSchema
       })
 
     }
@@ -92,7 +96,8 @@ async function generateSession(session_body){
       filteredDomain,
       filteredSessiondata,
       filteredAdditionalFlows,
-      filteredsummary
+      filteredsummary,
+      filteredSchema
     } = await getConfigBasedOnFlow(configName);
     
     const session = {
@@ -108,6 +113,7 @@ async function generateSession(session_body){
       input: filteredInput,
       protocolCalls: filteredCalls,
       additioalFlows: filteredAdditionalFlows,
+      schema: filteredSchema
     };
     
     

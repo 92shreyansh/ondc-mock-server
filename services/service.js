@@ -61,7 +61,8 @@ const onRequest = async (req, res) => {
       //do validation
       logger.info(`Validating ${api} request`);
       // validate schema
-      if(isFormFound || await validateSchema(context)){
+      if(isFormFound ||await validateSchema(context)
+      ){
 
         if(PROTOCOL_SERVER_DOMAINS.includes(context.req_body.context.domain)){ //json mapper
           context.req_body = await getBecknObject(context.req_body) 

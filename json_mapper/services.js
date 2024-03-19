@@ -10,9 +10,11 @@ const getBecknObject = async (payload)=>{
     let session = getSession(transaction_id)
 
     if(!session) {
-      await generateSession({version: payload.context.version,country: payload.context.location.country.code,cityCode: payload.context.location.city.code,configName: "metro-flow-1",transaction_id: transaction_id})
+      await generateSession({version: payload.context.version,country: payload?.context?.location?.country?.code,cityCode: payload?.context?.location?.city?.code,configName: "metro-flow-1",transaction_id: transaction_id})
       session = getSession(transaction_id)
       }
+      // validate schema
+      console.log(await validateSchema(payload,session.schema[config]))
 
     const {payload: becknPayload, session: updatedSession} = createBecknObject(
         session,
